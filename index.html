@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ff6600">
+  <link rel="icon" type="image/png" href="img/logo.jpg">
+  <title>PD Road Rollers – Rent & Lease in Bengaluru</title>
+
+  <!-- Bootstrap + Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family:'Poppins', 'Segoe UI', sans-serif;
+      background: #fdfdfd;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+    .navbar-brand img {
+      height: 72px;
+      width: auto;
+    }
+    @media (max-width: 768px) {
+      .navbar-brand img { height: 50px; }
+    }
+    .nav-link {
+      font-weight: 500;
+      margin: 0 10px;
+      color: #444;
+    }
+    .nav-link:hover { color: #ff6600; }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero-video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.55);
+      z-index: 1;
+    }
+    .hero .content {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      padding: 0 15px;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 700;
+      color: #ff6600;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      margin-bottom: 25px;
+    }
+    .btn-hero {
+      background: #ff6600;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: 12px 28px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .btn-hero:hover {
+      background: #e12e2e;
+      transform: scale(1.05);
+    }
+
+    /* Section Title */
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #ff6600;
+    }
+
+    /* Service Cards */
+    .service-card {
+      border: none;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: transform 0.3s;
+      padding: 25px 20px;
+      height: 100%;
+    }
+    .service-card:hover { transform: translateY(-8px); }
+    .service-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .service-card i {
+      font-size: 2.5rem;
+      color: #ff6600;
+      margin-bottom: 15px;
+    }
+
+    /* About */
+    .about {
+      background: #fff;
+      border-radius: 15px;
+      padding: 40px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    /* Contact */
+    .form-control, .form-select {
+      border-radius: 10px;
+    }
+    .btn-submit {
+      background: #ff6600;
+      color: #fff;
+      border-radius: 25px;
+      padding: 10px 25px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      border: none;
+    }
+    .btn-submit:hover {
+      background: #e12e2e;
+      color: #eee;
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+      background: #333;
+      color: #eee;
+      padding: 40px 0;
+    }
+    footer a {
+      color: #ff6600;
+      text-decoration: none;
+    }
+
+    /* Sticky Call Now */
+    .call-now {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ff6600;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 25px;
+      border-radius: 50px;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      z-index: 999;
+      transition: all 0.3s ease;
+    }
+    .call-now:hover {
+      background: #e84615;
+      color: #eee;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="#"><img src="img/logo.jpg" alt="Logo"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navmenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="img/back.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="content">
+    <h1>Reliable Road Rollers for Rent &amp; Lease in Bengaluru</h1>
+    <p>Find static and vibratory rollers for all road projects.</p>
+    <a href="#contact" class="btn btn-hero">Get a Free Quote</a>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" class="py-5">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">About PD Road Rollers</h2>
+    <div class="about" data-aos="fade-up">
+      <p>PD Road Rollers provides well-maintained static and vibratory rollers for rent and lease across Bengaluru. With 5+ years of trusted service, we are the go-to choice for contractors needing reliable equipment and 24/7 support for road projects.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services" class="py-5">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Our Services</h2>
+    <div class="row g-4 mb-4">
+      <div class="col-md-6" data-aos="fade-up">
+        <div class="service-card text-center">
+          <img src="img/v1.png" alt="Static Roller">
+          <h5>Static Road Roller</h5>
+          <p>Heavy rollers using weight and steel drum pressure to compact soil, gravel, or asphalt.</p>
+        </div>
+      </div>
+      <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-card text-center">
+          <img src="img/v3.jpg" alt="Vibratory Roller">
+          <h5>Vibratory Roller</h5>
+          <p>Large drum with vibration for soil/asphalt compaction. Ideal for foundations and compact spaces.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="service-card text-center">
+          <i class="bi bi-headset"></i>
+          <h5>24/7 Support</h5>
+          <p>Quick assistance and on-site availability anytime you need.</p>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-card text-center">
+          <i class="bi bi-shield-check"></i>
+          <h5>Reliable Machines</h5>
+          <p>Well-maintained, 100% reliable rollers for every project.</p>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-card text-center">
+          <i class="bi bi-building"></i>
+          <h5>Experience</h5>
+          <p>5+ years of trusted experience in construction equipment rentals.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Call for Quote -->
+<section id="call-quote" class="py-5 text-center" style="background:#fffaf7;">
+  <div class="container">
+    <h2 class="mb-3" style="color:#ff6600; font-weight:bold;">Call for Quote</h2>
+    <p class="text-dark mb-4">Fast rentals, Bengaluru-wide.</p>
+    <a href="tel:+918088078815" class="btn btn-lg btn-hero">
+      <i class="bi bi-telephone-fill"></i> Call Now
+    </a>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="section-title" data-aos="fade-up">Get in Touch</h2>
+    <form data-aos="fade-up">
+      <div class="row g-3">
+        <div class="col-md-6"><input type="text" class="form-control" placeholder="Full Name" required></div>
+        <div class="col-md-6"><input type="email" class="form-control" placeholder="Email" required></div>
+        <div class="col-md-6"><input type="tel" class="form-control" placeholder="Phone" required></div>
+        <div class="col-md-6"><input type="text" class="form-control" placeholder="Location in Bengaluru" required></div>
+        <div class="col-md-6">
+          <select class="form-select" required>
+            <option selected disabled>Requirement Type</option>
+            <option>Rent</option><option>Lease</option><option>General Inquiry</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <select class="form-select" required>
+            <option selected disabled>Equipment Needed</option>
+            <option>Static Roller</option><option>Vibratory Roller</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <select class="form-select" required>
+            <option selected disabled>Duration</option>
+            <option>Daily</option><option>Weekly</option><option>Monthly</option>
+          </select>
+        </div>
+        <div class="col-md-12"><textarea class="form-control" rows="4" placeholder="Your Message"></textarea></div>
+        <div class="col-12 text-center">
+          <button type="submit" class="btn btn-submit mt-3">Submit Request</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="pt-5 pb-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <h4 style="color:#ff6600;">PD Construction</h4>
+        <p>Reliable Road Rollers for Rent & Lease in Bengaluru. Trusted by contractors for 5+ years.</p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <h5 style="color:#ff6600;">Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 mb-4">
+        <h5 style="color:#ff6600;">Contact Us</h5>
+        <p><i class="bi bi-telephone-fill"></i> <a href="tel:+918088078815">+91 80880 78815</a></p>
+        <p><i class="bi bi-telephone-fill"></i> <a href="tel:+916362520126">+91 63625 20126</a></p>
+        <p><i class="bi bi-envelope-fill"></i> <a href="mailto:p5077@gmail.com">p5077@gmail.com</a></p>
+        <p><i class="bi bi-geo-alt-fill"></i> Bengaluru, Karnataka, India</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky Call Now -->
+<a href="tel:+918088078815" class="call-now">📞 Call Now</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init({ duration: 1000, once: true });</script>
+</body>
+</html>
